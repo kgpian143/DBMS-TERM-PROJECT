@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- Add Bootstrap CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <title>Query Metrics</title>
+    <!-- Add custom CSS -->
+    <style>
+        body {
+            padding: 40px;
+        }
+        h2 {
+            margin-bottom: 30px;
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+        th, td {
+            text-align: left;
+            padding: 8px;
+        }
+        th {
+            width: 30%;
+            font-weight: bold;
+        }
+        td {
+            width: 70%;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        {% if query_metrics %}
+            <h2 class="text-center">Query Metrics:</h2>
+            <table class="table table-bordered">
+                <tbody>
+                    <tr>
+                        <th scope="row">Query Text</th>
+                        <td>{{ query_metrics.0 }}</td>
+                    </tr>
+                    <tr>
+                        <th scope="row">Total Exec Time (ms)</th>
+                        <td>{{ query_metrics.1 }}</td>
+                    </tr>
+                    <tr>
+                        <th scope="row">Num Calls</th>
+                        <td>{{ query_metrics.2 }}</td>
+                    </tr>
+                    <tr>
+                        <th scope="row">Num Rows</th>
+                        <td>{{ query_metrics.3 }}</td>
+                    </tr>
+                    <tr>
+                        <th scope="row">CPU Time (ms)</th>
+                        <td>{{ query_metrics.4 }}</td>
+                    </tr>
+                    <tr>
+                        <th scope="row">Total Memory Usage (bytes)</th>
+                        <td>{{ query_metrics.5 }}</td>
+                    </tr>
+                    <tr>
+                        <th scope="row">Block IO Time (ms)</th>
+                        <td>{{ query_metrics.6 }}</td>
+                    </tr>
+                </tbody>
+            </table>
+            <div class="text-center">
+                <a href="return_home" class="btn btn-primary">Return to Query Page</a>
+            </div>
+        {% endif %}
+    </div>
+</body>
+</html>
